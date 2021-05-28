@@ -1,0 +1,189 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    padding: 0;
+        /* SÓ COLOCAR QUANDO COLOCAR COR NO HEADER */
+    margin: 0;
+        /* SÓ COLOCAR QUANDO COLOCAR COR NO HEADER */
+        /*background-color: red;*/
+    background-color: #ecf0f1;
+}
+
+.container { 
+    width: 80%;
+    margin: auto;
+
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    color: black
+}
+
+a {
+    text-decoration: none;
+}
+
+/* CABEÇALHO */
+
+.header {
+    background-color: #232323;
+        /*overflow: auto; /* cuidado*/
+    height: 150px;
+        /*ATENÇÃO VOLTA A NAV AQUI SE SUMIR*/
+
+}
+
+.header .container {
+    height: 80px;
+}
+
+.header h1 {
+    margin: 0;
+    padding: 0;
+    float: left;
+        /*ATENÇÃO - VAI SUMIR A NAV*/
+    margin-top: 50px;
+    color: white;
+    font-size: 35px;
+    margin-left: none;
+
+}
+
+.header ul {
+    list-style-type: none;
+        /*ATENÇÃO - NAO É NO NAV*/
+    float: right;
+        /*ATENÇÃO - VAI SUMIR A NAV*/
+    margin-top: 60px;
+}
+
+.header li {
+    float: left;
+        /*ATENÇÃO ORDENE OS ITENS NA MESMA ORDEM QUE ESTÃO NO HTML*/
+    margin-left: 18px;
+        /* FIM*/
+}
+
+.header a {
+    /*text-transform: uppercase;*/
+    color: white;
+}
+
+.formulario {
+    float: left;
+    width: 500px;
+}
+
+form label, form p{
+    display: block;
+    font-size: 20px;
+    margin-bottom:10px ;
+}
+
+.btn-green {
+    color: white;
+    background-color: black;
+    margin: 20px 0 50px 0;
+    border: 0;
+    padding: 10px 20px;
+
+    border-radius: 5px;
+    float: left;
+    cursor: pointer;
+}
+
+.imagem-lateral {
+    overflow: auto;
+}
+
+.contato img {
+    float: right;
+    width: 85%;
+}
+
+.input-padrao {
+    display: block;
+    margin-bottom: 20px;
+    padding: 10px 25px;
+    width: 90%;
+
+    border-radius: 5px;
+    border: solid 1px #bbbbbb;
+}
+
+.div-radio {
+    margin-bottom: 30px;
+}
+
+/* PÁGINA DO LOGIN */
+
+.pag-login {
+    background-color: #ecf0f1;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.pag-login h1 {
+    margin-bottom: 40px;
+}
+
+.pag-login .input-padrao {
+    width: 50%;
+    display: inline-block;
+}
+
+.box-login {
+    display: inline-block;
+    background-color: white;
+    box-shadow:  3px 3px 5px 2px #ccc;
+    padding: 60px 20px 0px 20px;
+    border-radius: 20px;
+    width: 400px;
+}
+
+.pag-login .btn-green {
+    display: block;
+    float: none;
+    margin: auto;
+}
+
+.btn_voluntario{
+    color: white;
+    background-color: black;
+    border: 0;
+    padding: 10px 20px;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    margin: auto;
+}
+
+
+
+/* EXTRA */
+
+.extra {
+    margin: 10px;
+}
+
+.extra img {
+  height: 50px;
+   visibility: hidden;
+}
+
+.extra .msg_erro {
+    background-color: sandybrown; 
+    color: black; 
+    visibility: hidden;
+}
+
+.footer-login{
+    width: 100%;
+    height:80px;
+    background-color: black;
+    padding-top: 20px;
+}
+

@@ -1,0 +1,250 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    padding: 0;
+        /* SÓ COLOCAR QUANDO COLOCAR COR NO HEADER */
+    margin: 0;
+        /* SÓ COLOCAR QUANDO COLOCAR COR NO HEADER */
+        /*background-color: red;*/
+}
+
+.container { 
+    width: 85%;
+    margin: auto;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    color: black;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+/* CABEÇALHO */
+
+.header {
+    background-color: #232323;
+        /*overflow: auto; /* cuidado*/
+    height: 150px;
+        /*ATENÇÃO VOLTA A NAV AQUI SE SUMIR*/
+
+}
+
+.header .container {
+    height: 80px;
+}
+
+.header h1 {
+    margin: 0;
+    padding: 0;
+    float: left;
+        /*ATENÇÃO - VAI SUMIR A NAV*/
+    margin-top: 50px;
+    color: white;
+    font-size: 35px;
+    width: 55%;
+    margin-left: none;
+
+}
+
+.header ul {
+    list-style-type: none;
+        /*ATENÇÃO - NAO É NO NAV*/
+    float: right;
+        /*ATENÇÃO - VAI SUMIR A NAV*/
+    margin-top: 60px;
+}
+
+.header li {
+    float: left;
+        /*ATENÇÃO ORDENE OS ITENS NA MESMA ORDEM QUE ESTÃO NO HTML*/
+    margin-left: 18px;
+        /* FIM*/
+}
+
+.header a {
+    /*text-transform: uppercase;*/
+    color: white;
+}
+
+.banner{
+    width: 100%;
+    height: 400px;
+    background-color: salmon;
+    background-image: url('../imagem/AO\ ALCANCE\ DE\ TODOS\ \(6\).png');
+    background-size:cover;
+
+}
+.banner .texto{
+    padding-top: 180px;
+}
+
+.banner h1{
+    color: black;
+    font-size: 60px;
+    text-align: center;
+}
+
+.banner .texto h3{
+    font-size: 20px;
+    text-align: center;
+
+}
+
+.projeto{
+    width: 100%;
+    height: 400px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+.titulo{
+    color: black;
+    font-size: 60px;
+    width: 50%;
+    text-align: center;
+    padding-bottom: 15px;
+
+}
+
+.texto-projeto{
+    font-size: 17px;
+    color: black;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 25px;
+    text-align: center;
+    width: 50%;
+    height: 280px;
+    display: inline-flex;
+    box-shadow:  3px 3px 5px 2px #ccc;
+    border-radius: 20px;
+    
+}
+
+.img-home1{
+    width: 500px;
+    height: 300px;
+    align-items: center;
+    float: right;
+}
+
+.linha{
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    display: inline-flex;
+}
+
+.somos{
+    width: 100%;
+    height: 300px;
+}
+
+.somos h1{
+    font-size: 50px;
+    color: black;
+    text-align: center;
+    padding-bottom: 90px;
+}
+
+.titulo-somos{
+    font-size: 20px;
+    color: black;
+    padding-top: 15px;
+    text-align: justify;
+}
+
+.texto-somos{
+    text-align: justify;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.imagem-final{
+    width: 100%;
+    height: 600px;
+    background-color: white
+}
+
+.titulo-imagem{
+    font-size: 40px;
+    color: black;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    text-align: center;
+
+}
+
+.imagem-final .container{
+    width: 90%;
+}
+ 
+.img-home{
+   width: 300px; 
+   height: 200px;
+
+}
+
+.img-home:hover{
+    background: black;
+}
+
+.footer{
+    width: 100%;
+    height: 500px;
+    background-color: black;
+    padding-top: 40px;
+
+}
+
+.footer h2{
+    text-align: center;
+}
+
+.footer p{
+    font-size: 15px;
+    width: 100%;
+    text-align: center;
+
+}
+
+.informacao{
+    color: blanchedalmond;
+
+}
+
+.input-fora{
+    width: auto;
+    align-items: center;
+    padding-top: 40px;
+    display: inline-block;
+    padding-bottom: 30px;
+}
+
+.input{
+    height: 50px;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.botao {
+    width: 180px; 
+    height: 40px;
+    border: none;
+    background-color: #c2c2c2;
+    font-size: 15px;
+}
+
+.botao a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-weight: bolder;
+}
+

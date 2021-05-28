@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEJA UM VOLUNTÁRIO</title>
+    <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" href="css\stylevoluntario.css">
+    <link rel="shortcut icon" href="../public/imagem/aoalcance.jpg">
+</head>
+
+<body>
+    <!--header inicio-->
+    <div class="header">
+        <div class="container">
+            <h1 class="titulo"><span class="highlight">AADT</span> Ao alcance de todos</h1>
+            <div class="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="" class="current">Seja um voluntário</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--header final->
+
+        <!-- Começo texto-->
+
+    <div class="sejavoluntario">
+        <div class="container">
+            <div class="titulo-container">
+                <h1>
+                    Seja um voluntario
+                </h1>
+                <p>Por favor, responda o questionário utilizando o formulário abaixo para realizar o login. Os voluntários
+                    além de toda ajuda, pode ver quantas marmitas levamos no mês, em quais locais e outras métricas.
+                </p>
+                <div class="input-forav">
+                    <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                        <label for="input_volun_nome">
+                            Nome *
+                        </label><br>
+                        <input name="nomeVoluntario" class="input-v" id="input_volun_nome"><br>
+
+                        <label for="input_volu_contato">
+                            Telefone de Contato*
+                        </label><br>
+                        <input name="telefoneVoluntario" class="input-v" id="input_volu_contato"><br>
+
+                        <label for="input_volu_email">
+                            Email* <span style="font-size:10px">(Este e-mail será o login)</span>
+                        </label><br>
+                        <input name="email" class="input-v" id="input_volu_email"><br>
+
+                        <label for="input_volu_senha">
+                            Senha*
+                        </label><br>
+                        <input name="senha" class="input-v" id="input_volu_senha"><br>
+
+                        <label for="input_volu_espera">
+                            O que você espera como voluntário(a) da AADT? *
+                        </label>
+                        <textarea name="descricao" class="input-v" id="input_volu_espera"></textarea><br>
+
+                        <label for="input_volu_ajuda">
+                            Como você gostaria de ajudar o AADT?
+                        </label>
+                        <input name="ajuda" class="input-v" id="input_volu_ajuda"><br>
+
+                        <label for="input_volu_disponibilidade">
+                            Nós saímos de final de semana, você teria disponibilidade?
+                        </label>
+                        <input name="disponibilidade" class="input-v" id="input_volu_disponibilidade"><br>
+                        
+                        <input type="submit" id="btn_entrar" value="Cadastrar" class="button-enviar">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Começo do footer-->
+    <center>
+        <div class="footer">
+            <div class="container">
+                <div class="informacao">
+                    <h2>
+                        RECEBA NOSSA NEWSLETTER
+                    </h2>
+                    <p>
+                        Receba novidades sobre projetos, eventos, ações de voluntariado e tudo<br>
+                        o que acontece de mais importante na AADT direto na sua caixa de e-mails.
+                    </p>
+                    <div class="input-fora">
+                        <input class="input" placeholder="Nome" id="input_footer_nome">
+                        <input class="input" placeholder="Sobrenome" id="input_footer_sobrenome">
+                        <input class="input" placeholder="Endereço de e-mail" id="input_footer_email">
+                    </div><br>
+
+                    <button class="botao">
+                        <a href="cadastro.html">CADASTRAR</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </center>
+    <!--Fim footer-->
+</body>
+
+</html>
+
+<script>
+
+    function cadastrar() {
+        var formulario = new URLSearchParams(new FormData(form_cadastro));
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+            
+            if (response.ok) {
+
+                window.location.href='login.html';
+
+            } else {
+
+                console.log('Erro de cadastro!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+            }
+        });
+
+        return false;
+    }
+
+</script>

@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    padding: 0;
+        /* SÓ COLOCAR QUANDO COLOCAR COR NO HEADER */
+    margin: 0;
+        /* SÓ COLOCAR QUANDO COLOCAR COR NO HEADER */
+        /*background-color: red;*/
+        background-color: #ecf0f1;
+}
+
+.container { 
+    width: 80%;
+    margin: auto;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* CABEÇALHO */
+
+.header {
+    background-color: #232323;
+        /*overflow: auto; /* cuidado*/
+    height: 150px;
+        /*ATENÇÃO VOLTA A NAV AQUI SE SUMIR*/
+
+}
+
+.header .container {
+    height: 80px;
+}
+
+.header h1 {
+    margin: 0;
+    padding: 0;
+    float: left;
+        /*ATENÇÃO - VAI SUMIR A NAV*/
+    margin-top: 50px;
+    color: white;
+    font-size: 35px;
+    margin-left: none;
+
+}
+
+.header ul {
+    list-style-type: none;
+        /*ATENÇÃO - NAO É NO NAV*/
+    float: right;
+        /*ATENÇÃO - VAI SUMIR A NAV*/
+    margin-top: 60px;
+}
+
+.header li {
+    float: left;
+        /*ATENÇÃO ORDENE OS ITENS NA MESMA ORDEM QUE ESTÃO NO HTML*/
+    margin-left: 18px;
+        /* FIM*/
+}
+
+.header a {
+    /*text-transform: uppercase;*/
+    color: white;
+}
+
+.sejavoluntario{
+    background-color: #ecf0f1;
+}
+
+.sejavoluntario .container{
+    width: 70%;
+}
+.titulo-container h1{
+    color: black;
+    font-size: 40px;
+    padding-top: 50px;
+    margin-top: 60px;
+    margin-left: 40px;
+}
+
+.titulo-container p{
+    padding-left: 40px;
+    width: 82%;
+}
+
+.input-forav{
+    margin-bottom: 10px;
+    padding: 40px;
+}
+
+.input-v{
+    width: 800px;
+    height: 30px;
+    margin-bottom: 5px;
+    margin-top: 4px;
+}
+
+.button-enviar{
+    width: 150px;
+    height: 50px;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    font-size: 20px;
+}

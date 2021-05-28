@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: museo-sans-rounded;
+    font-weight: lighter;
+    padding: 0;
+        /* SÓ COLOCAR QUANDO COLOCAR COR NO HEADER */
+    margin: 0;
+        /* SÓ COLOCAR QUANDO COLOCAR COR NO HEADER */
+        /*background-color: red;*/
+        background-color: #ecf0f1;
+}
+
+.c-container { 
+    width: 45%;
+    height: 100%;
+
+}
+
+.container2{
+    width: 350px;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* CABEÇALHO */
+
+.header {
+    background-color: #232323;
+        /*overflow: auto; /* cuidado*/
+    height: 150px;
+        /*ATENÇÃO VOLTA A NAV AQUI SE SUMIR*/
+
+}
+
+.header .container {
+    height: 80px;
+}
+
+.header h1 {
+        /*ATENÇÃO - VAI SUMIR A NAV*/
+    color: white;
+    font-size: 35px;
+
+}
+
+.header ul {
+    list-style-type: none;
+        /*ATENÇÃO - NAO É NO NAV*/
+    float: right;
+        /*ATENÇÃO - VAI SUMIR A NAV*/
+    margin-top: 60px;
+}
+
+.header li {
+    float: left;
+        /*ATENÇÃO ORDENE OS ITENS NA MESMA ORDEM QUE ESTÃO NO HTML*/
+    margin-left: 18px;
+        /* FIM*/
+}
+
+.header a {
+    /*text-transform: uppercase;*/
+    color: white;
+}
+
+.contato{
+    width: 70%;
+}
+
+.c-container h1{
+    color: black;
+    font-size: 40px;
+}
+
+.paragrafo{
+    color: black;
+    font-size: 15px;
+}
+
+.input_contato{
+    width: 100%;
+    height: 40px;
+}
+
+.input_msg{
+    width: 500px;
+    height: 150px;
+    line-height: normal;
+    box-sizing: border-box;
+    min-height: 100px;
+    resize: vertical;
+    overflow: auto;
+}
+
+.button-enviar{
+    width: 120px;
+    height: 50px;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.button-contato-volu{
+    width: 250px;
+    height: 50px;
+    font-size: 17px;
+    background-color: black;
+    color: white;
+    border-bottom: none;
+    cursor: pointer;
+}
+
+.icons{
+    width: 40px;
+    height: 40px;
+
+}
+
+.paragrafo-footer{
+    font-size: 15px;
+    padding-top: 5px;
+
+}
+
+.div-conteudo{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 85%;
+    height: 650px;
+}
+
+.conteudo{
+    width: 100%;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botao-seja{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    margin-left: 50px;
+
+}
+
+.mapa{
+    margin-bottom: 50px;
+}
+
+.container2 a{
+    text-decoration: none;
+    color: white;
+}

@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    padding: 0;
+        /* SÓ COLOCAR QUANDO COLOCAR COR NO HEADER */
+    margin: 0;
+        /* SÓ COLOCAR QUANDO COLOCAR COR NO HEADER */
+        /*background-color: red;*/
+}
+
+.container { 
+    width: 80%;
+    margin: auto;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    color: salmon;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* CABEÇALHO */
+
+.header {
+    background-color: #232323;
+        /*overflow: auto; /* cuidado*/
+    height: 150px;
+        /*ATENÇÃO VOLTA A NAV AQUI SE SUMIR*/
+
+}
+
+.header .container {
+    height: 80px;
+}
+
+.header h1 {
+    margin: 0;
+    padding: 0;
+    float: left;
+        /*ATENÇÃO - VAI SUMIR A NAV*/
+    margin-top: 50px;
+    color: white;
+    font-size: 35px;
+    width: 55%;
+    margin-left: none;
+
+}
+
+.header ul {
+    list-style-type: none;
+        /*ATENÇÃO - NAO É NO NAV*/
+    float: right;
+        /*ATENÇÃO - VAI SUMIR A NAV*/
+    margin-top: 60px;
+}
+
+.header li {
+    float: left;
+        /*ATENÇÃO ORDENE OS ITENS NA MESMA ORDEM QUE ESTÃO NO HTML*/
+    margin-left: 18px;
+        /* FIM*/
+}
+
+.header a {
+    /*text-transform: uppercase;*/
+    color: white;
+}
