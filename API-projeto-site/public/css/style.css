@@ -127,6 +127,7 @@ a {
     
 }
 
+
 .img-home1{
     width: 500px;
     height: 300px;
@@ -191,9 +192,12 @@ a {
 
 }
 
-.img-home:hover{
-    background: black;
+.container img:hover{
+    filter: opacity(25%);
+    background-color: #232323;
+    transition: 0.3s;
 }
+
 
 .footer{
     width: 100%;
