@@ -2,7 +2,11 @@ var express = require('express');
 var router = express.Router();
 var sequelize = require('../models').sequelize;
 var Usuario = require('../models').Usuario;
-// var Contato = require('../models').Contato;
+var Doacao = require('../models').Doacao;
+var Contato = require('../models').Contato;
+var Doador = require('../models').Doador;
+var Revista = require('../models').Revista;
+
 
 let sessoes = [];
 
@@ -39,7 +43,7 @@ router.post('/autenticar', function(req, res, next) {
 
 /* Cadastrar usuário */
 router.post('/cadastrar', function(req, res, next) {
-	console.log('Criando um usuário');
+	console.log('Criando um voluntario');
 	
 	Usuario.create({
 		nomeVoluntario : req.body.nomeVoluntario,
@@ -58,26 +62,82 @@ router.post('/cadastrar', function(req, res, next) {
   	});
 });
 
-// /* Cadastrar contato */
-// router.post('/cadastrar', function(req, res, next) {
-// 	console.log('Criando um usuário');
+/* Cadastrar doacao */
+router.post('/cadastrarDoacao', function(req, res, next) {
+	console.log('Doacão');
 	
-// 	Usuario.create({
-// 		nomeVoluntario : req.body.nomeVoluntario,
-// 		telefoneVoluntario: req.body.telefoneVoluntario,
-// 		email: req.body.email,
-// 		senha: req.body.senha,
-// 		descricao: req.body.descricao,
-// 		ajuda: req.body.ajuda,		
-// 		disponibilidade: req.body.disponibilidade
-// 	}).then(resultado => {
-// 		console.log(`Registro criado: ${resultado}`)
-//         res.send(resultado);
-//     }).catch(erro => {
-// 		console.error(erro);
-// 		res.status(500).send(erro.message);
-//   	});
-// });
+	Doacao.create({
+		nomeProduto : req.body.nomeProduto,
+		descricaoProduto: req.body.descricaoProduto,
+		dataValidade: req.body.dataValidade
+	}).then(resultado => {
+		console.log(`Registro criado: ${resultado}`)
+        res.send(resultado);
+    }).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+  	});
+});
+
+
+/* Cadastrar contato */
+router.post('/cadastrarContato', function(req, res, next) {
+	console.log('Contato cadastrado');
+	
+	Contato.create({
+		nomeContato : req.body.nomeContato,
+		telefoneContato: req.body.telefoneContato,
+		emailContato: req.body.emailContato,
+		assunto : req.body.assunto,
+		mensagem: req.body.mensagem,
+		comoChegou: req.body.comoChegou
+	}).then(resultado => {
+		console.log(`Registro criado: ${resultado}`)
+        res.send(resultado);
+    }).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+  	});
+});
+
+
+/* Cadastrar Doador */
+router.post('/cadastrarDoador', function(req, res, next) {
+	console.log('Doador cadastrado com sucesso!');
+	
+	Doador.create({
+		nomeDoador : req.body.nomeDoador,
+		dataNasc: req.body.dataNasc,
+		logradouro: req.body.logradouro,
+		bairro : req.body.bairro,
+		cidade: req.body.cidade,
+		estado: req.body.estado
+	}).then(resultado => {
+		console.log(`Registro criado: ${resultado}`)
+        res.send(resultado);
+    }).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+  	});
+});
+
+
+/* Cadastrar Pessoa interessada na revista */
+router.post('/cadastrarPessoa', function(req, res, next) {
+	console.log('Cadastrado com sucesso!');
+	
+	Revista.create({
+		nomePessoa : req.body.nomePessoa,
+		sobrenomePessoa: req.body.sobrenomePessoa,
+		emailPessoa : req.body.emailPessoa
+	}).then(resultado => {
+		console.log(`Registro criado: ${resultado}`)
+        res.send(resultado);
+    }).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+  	});
+});
 
 
 /* Verificação de usuário */

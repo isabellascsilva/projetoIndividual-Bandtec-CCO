@@ -8,7 +8,7 @@
     <title>SEJA UM VOLUNTÁRIO</title>
     <link rel="stylesheet" href="css\style.css">
     <link rel="stylesheet" href="css\stylevoluntario.css">
-    <link rel="shortcut icon" href="../public/imagem/aoalcance.jpg">
+    <link rel="shortcut icon" href="./imagem/aoalcance.jpg">
 </head>
 
 <body>
@@ -84,7 +84,6 @@
         </div>
     </div>
 
-
     <!--Começo do footer-->
     <center>
         <div class="footer">
@@ -95,22 +94,23 @@
                     </h2>
                     <p>
                         Receba novidades sobre projetos, eventos, ações de voluntariado e tudo<br>
-                        o que acontece de mais importante na AADT direto na sua caixa de e-mails.
+                         o que acontece de mais importante na AADT direto na sua caixa de e-mails.
                     </p>
+                    <form id="form_cadastroRevista" method="post" onsubmit="return cadastrarPessoa()">
                     <div class="input-fora">
-                        <input class="input" placeholder="Nome" id="input_footer_nome">
-                        <input class="input" placeholder="Sobrenome" id="input_footer_sobrenome">
-                        <input class="input" placeholder="Endereço de e-mail" id="input_footer_email">
+                    <input name="nomePessoa" class="input" placeholder="Nome" id="input_footer_nome">
+                    <input name="sobrenomePessoa" class="input" placeholder="Sobrenome" id="input_footer_sobrenome">
+                    <input name="emailPessoa" class="input" placeholder="Endereço de e-mail" id="input_footer_email">
                     </div><br>
-
-                    <button class="botao">
-                        <a href="cadastro.html">CADASTRAR</a>
-                    </button>
-                </div>
+                    <input type="submit" id="btn_contato" value="Cadastrar" class="botao" style="cursor: pointer;">
+                    </form>
+    
+                    <p class="paragrafo-footer"><span>ENDEREÇO AADT</span><br> Avenida Raimundo Pereira de Magalhaes 1720 - São Paulo</p>
+            </div>
             </div>
         </div>
     </center>
-    <!--Fim footer-->
+        <!--Fim footer-->
 </body>
 
 </html>
@@ -127,6 +127,29 @@
             if (response.ok) {
 
                 window.location.href='login.html';
+
+            } else {
+
+                console.log('Erro de cadastro!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+            }
+        });
+
+        return false;
+    }
+
+    function cadastrarPessoa() {
+        var formulario = new URLSearchParams(new FormData(form_cadastroRevista));
+        fetch("/usuarios/cadastrarPessoa", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+            
+            if (response.ok) {
+
+                alert("Cadastrado com sucesso");
 
             } else {
 

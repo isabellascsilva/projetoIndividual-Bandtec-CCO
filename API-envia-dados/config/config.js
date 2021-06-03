@@ -2,10 +2,10 @@ module.exports = {
   // Insira aqui seus dados do banco NA NUVEM AZURE
   production: {
     // altere APENAS username, password, database e host.
-    username: 'SEU_USUARIO',
-    password: 'SUA_SENHA',
-    database: 'NOME DO SEU BD',
-    host: 'LINK PARA SEU BD, ALGO COMO minhadatabase.database.windows.net',
+    username: 'SEU_USUARIO_DO_BANCO_DE_DADOS',
+    password: 'SUA_SENHA_DO_BANCO_DE_DADOS',
+    database: 'NOME_DO_SEU_DATABASE',
+    host: 'LINK_DO_SEU_DATABASE_ deve ser algo como "MEUPROJETO.database.windows.net"',
     dialect: 'mssql',
     xuse_env_variable: 'DATABASE_URL',
     dialectOptions: {
@@ -25,9 +25,9 @@ module.exports = {
   // Insira aqui seus dados do banco LOCAL - MySQL Workbench
   dev: {
     // altere APENAS username, password e database.
-    username: 'root',
-    password: '94265871300Is',
-    database: 'projetosocial',
+    username: 'SEU_USUARIO_DO_BANCO_DE_DADOS',
+    password: 'SUA_SENHA_DO_BANCO_DE_DADOS',
+    database: 'NOME_DO_SEU_DATABASE',
     host: 'localhost',
     dialect: 'mysql',
     xuse_env_variable: 'DATABASE_URL',
@@ -45,3 +45,4 @@ module.exports = {
     }
   },
 };
+ 

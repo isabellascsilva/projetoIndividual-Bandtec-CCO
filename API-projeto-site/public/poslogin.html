@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ao alcance de todos - Dashboard</title>
+  <script type="text/javascript" src="funcoes.js"></script>
+  <!-- <link rel="stylesheet" href="css\poslogin.css">
+  <link rel="stylesheet" href="css\contato.css"> -->
+  <link rel="stylesheet" href="css\style.css">
+
+
+</head>
+
+<body>
+
+  <div class="header">
+    <div class="nav">
+      <ul>
+        <li><a onclick="logoff()" style="cursor: pointer;">Sair</a></li>
+      </ul>
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+  <section class="conteudo">
+    <div class="container-pos">
+      <div class="poslogin">
+        <h1> Seja também um doador!
+        </h1>
+        <br>
+        <h2>
+          Preencha esses campos:
+        </h2>
+
+
+        <form id="form_doador" method="post" onsubmit="return cadastrarDoador()">
+
+          <label for="input_nomeDoador">
+            Nome completo*
+          </label><br>
+          <input class="input_doador" name="nomeDoador" type="text" id="input_nomeDoador"><br>
+          <label for="input_dataNascimento">
+            Data de nascimento*
+          </label><br>
+          <input class="input_doador" name="dataNasc" type="date" id="input_dataNascimento"><br>
+          <label for="input_logradouro">
+            Logradouro*
+          </label><br>
+          <input class="input_doador" name="logradouro" type="text" id="input_logradouro"><br>
+          <label for="input_bairro">
+            bairro*
+          </label><br>
+          <input class="input_doador" name="bairro" type="text" id="input_bairro"><br>
+          <label for="input_cidade">
+            cidade*
+          </label><br>
+          <input class="input_doador" name="cidade" type="text" id="input_cidade"><br>
+          <label for="input_estado">
+            estado*
+          </label><br>
+          <select name="estado">
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+          </select><br><br><br>
+
+          <input type="submit" id="btn_entrar" value="Cadastrar Doador" class="button-contato-volu"><br>
+
+        </form>
+
+      </div>
+    </div>
+
+    <!--ESSA É A ÁREA DO GRÁFICO-->
+
+
+
+
+    <!--FINAL DA ÁREA DO GRÁFICO-->
+
+  </section><br><br>
+
+
+  <div class="conteudo-poslogin">
+    <form id="form_doacao" method="post" onsubmit="return cadastrarDoacao()">
+
+      <select class="select_class" name="nomeProduto" id="idNomeProduto">
+        <option value="arroz">Arroz</option>
+        <option value="macarrao">Macarrão</option>
+        <option value="feijao">Feijão</option>
+        <option value="agua">Água</option>
+      </select><br>
+
+      <label for="idDescricaoProduto">
+        Descrição do Produto:
+      </label> <br>
+      <input id="idDescricaoProduto" name="descricaoProduto" class="input_doacao" type="text">
+      <br>
+      <label for="idDataValidade">
+        Data de validade:
+      </label><br>
+      <input id="idDataValidade" name="dataValidade" class="input_doacao" type="date"><br>
+      <br>
+      <input type="submit" id="btnCadastroDoacao" value="Cadastrar doação" class="button-contato-volu">
+
+    </form>
+  </div>
+
+</body>
+
+</html>
+
+
+
+<script>
+
+  verificar_autenticacao()
+
+  function cadastrarDoacao() {
+    var formulario = new URLSearchParams(new FormData(form_doacao));
+    fetch("/usuarios/cadastrarDoacao", {
+      method: "POST",
+      body: formulario
+    }).then(function (response) {
+
+      if (response.ok) {
+
+        alert("Cadastrado com sucesso!");
+
+      } else {
+
+        console.log('Erro de cadastro!');
+        response.text().then(function (resposta) {
+          div_erro.innerHTML = resposta;
+        });
+      }
+    });
+
+    return false;
+  }
+
+  function cadastrarDoador() {
+    var formulario = new URLSearchParams(new FormData(form_doador));
+    fetch("/usuarios/cadastrarDoador", {
+      method: "POST",
+      body: formulario
+    }).then(function (response) {
+
+      if (response.ok) {
+
+        alert("Doador cadastrado com sucesso!");
+
+      } else {
+
+        console.log('Erro de cadastro!');
+        response.text().then(function (resposta) {
+          div_erro.innerHTML = resposta;
+        });
+      }
+    });
+
+    return false;
+  }
+
+</script>

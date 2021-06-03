@@ -32,39 +32,41 @@
     <section class="conteudo">
         <div class="div-conteudo">
             <div class="c-container">
-                <form action="">
+                <form id="form_contato" method="post" onsubmit="return cadastrarContato()">
                     <h1>
                         Contato
                     </h1>
                     <p class="paragrafo">Entre me contato conostro através do formulário</p>
+
+                    
                         <label for="input_contato_nome">
-                            Nome
+                            Nome:
                         </label><br>
                         <input name="nomeContato" class="input_contato" type="text" id="input_contato_nome"><br><br>
 
                         <label for="input_contato_tel">
-                            Telefone
+                            Telefone:
                         </label><br>
-                        <input name="telefone" class="input_contato" type="text" id="input_contato_tel"><br><br>
+                        <input name="telefoneContato" class="input_contato" type="text" id="input_contato_tel" maxlength="11"><br><br>
 
                         <label for="input_contato_email">
-                            E-mail
+                            E-mail:
                         </label><br>
                         <input name="emailContato" class="input_contato" type="text" id="input_contato_email"><br><br>
 
                         <label for="input_contato_assunto">
-                            Assunto
+                            Assunto:
                         </label><br>
                         <input name="assunto" class="input_contato" type="text" id="input_contato_assunto"><br><br>
 
                         <label for="input_contato_msg">
-                            Mensagem
+                            Mensagem:
                         </label><br>
                         <textarea name="mensagem" class="input_msg" type="text" id="input_contato_msg"></textarea><br>
                         <label for="select-indicacao">
                         Como chegou até nós?
                         </label><br>
-                        <select name="comoAchou" class="indicacao" id="select-indicacao">
+                        <select name="comoChegou" class="indicacao" id="select-indicacao">
                             <option value="vazio"></option>
                             <option value="indicacaoA">Indicação de Amigos</option>
                             <option value="facebook">Facebook</option>
@@ -73,9 +75,7 @@
                             <option value="outros">Outros</option>
                         </select><br>
 
-                            <div class="btn">
-                                <button class="botao">Enviar</button>
-                            </div>
+                        <input type="submit" id="btn_contato" value="Enviar" class="botao">
                 </form>    
             </div>
 
@@ -115,29 +115,19 @@
                 </h2>
                 <p>
                     Receba novidades sobre projetos, eventos, ações de voluntariado e tudo<br>
-                    o que acontece de mais importante na AADT direto na sua caixa de e-mails.
+                     o que acontece de mais importante na AADT direto na sua caixa de e-mails.
                 </p>
+                <form id="form_cadastroRevista" method="post" onsubmit="return cadastrarPessoa()">
                 <div class="input-fora">
-                    <input class="input" placeholder="Nome" id="input_footer_nome">
-                    <input class="input" placeholder="Sobrenome" id="input_footer_sobrenome">
-                    <input class="input" placeholder="Endereço de e-mail" id="input_footer_email">
+                <input name="nomePessoa" class="input" placeholder="Nome" id="input_footer_nome">
+                <input name="sobrenomePessoa" class="input" placeholder="Sobrenome" id="input_footer_sobrenome">
+                <input name="emailPessoa" class="input" placeholder="Endereço de e-mail" id="input_footer_email">
                 </div><br>
+                <input type="submit" id="btn_contato" value="Cadastrar" class="botao" style="cursor: pointer;">
+                </form>
 
-                <button class="botao">
-                    <a href="cadastro.html">CADASTRAR</a>
-                </button>
-
-                <p class="paragrafo-footer"><span>ENDEREÇO AADT</span><br> Avenida Raimundo Pereira de Magalhaes 1720 -
-                    São Paulo - Pirituba</p>
-                <p>Siga-nos nas redes sociais</p>
-                <div class="icones">
-                    <img class="icons" src="https://capella.art.br/wp-content/uploads/2018/11/facebook-icon.png">
-                    <img class="icons" src="">
-                    <img class="icons" src="">
-                </div>
-
-
-            </div>
+                <p class="paragrafo-footer"><span>ENDEREÇO AADT</span><br> Avenida Raimundo Pereira de Magalhaes 1720 - São Paulo</p>
+        </div>
         </div>
     </div>
 </center>
@@ -148,30 +138,64 @@
 
 <script>
 
-    // function cadastrarContato() {
+    function limparinput(){
+        input_contato_nome.value="";
+        input_contato_tel.value="";
+        input_contato_email.value="";
+        input_contato_assunto.value="";
+        input_contato_msg.value="";
+
+    }
+
+    function cadastrarContato() {
 
 
-    // var formulario = new URLSearchParams(new FormData(form_contato));
-    // fetch("/usuarios/cadastrarContato", {
-    //     method: "POST",
-    //     body: formulario
-    // }).then(function (response) {
+    var formulario = new URLSearchParams(new FormData(form_contato));
+    fetch("/usuarios/cadastrarContato", {
+        method: "POST",
+        body: formulario
+    }).then(function (response) {
 
-    //     if (response.ok) {
+        if (response.ok) {
 
-    //         window.location.href='login.html';
+            alert("Mensagem Enviada! Entraremos em contato.")
+            limparinput()
 
-    //     } else {
+        } else {
 
-    //         console.log('Erro de solicitação!');
-    //         response.text().then(function (resposta) {
+            console.log('Erro de solicitação!');
+            response.text().then(function (resposta) {
 
-    //         });
+            });
 
-    //     }
-    // });
+        }
+    });
 
-    // return false;
-    // }
+    return false;
+    }
+
+    function cadastrarPessoa() {
+        var formulario = new URLSearchParams(new FormData(form_cadastroRevista));
+        fetch("/usuarios/cadastrarPessoa", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+            
+            if (response.ok) {
+
+                alert("Cadastrado com sucesso");
+
+            } else {
+
+                console.log('Erro de cadastro!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+            }
+        });
+
+        return false;
+    }
+
 
 </script>
