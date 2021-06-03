@@ -1,7 +1,6 @@
 # Projeto Social Ao alcance de todos
 Projeto que tem como objetivo levar marmitas para as pessoas em situação de rua.
 
-![PROJETOSOCIAL]()
 
 
 ![Badge](https://img.shields.io/badge/Code-HTML-green?&logo=html)
