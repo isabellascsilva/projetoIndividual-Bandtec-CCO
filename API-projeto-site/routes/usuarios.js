@@ -27,7 +27,7 @@ router.post('/autenticar', function(req, res, next) {
 		console.log(`Encontrados: ${resultado.length}`);
 
 		if (resultado.length == 1) {
-			sessoes.push(resultado[0].dataValues.login);
+			sessoes.push(resultado[0].dataValues.email);
 			console.log('sessoes: ',sessoes);
 			res.json(resultado[0]);
 		} else if (resultado.length == 0) {
@@ -42,7 +42,7 @@ router.post('/autenticar', function(req, res, next) {
   	});
 });
 
-/* Recuperar usuário por login e senha */
+/* Buscar doador */
 router.post('/buscarDoador', function(req, res, next) {
 	console.log('Buscando Doador');
 
@@ -183,7 +183,7 @@ router.post('/cadastrarDoadorDoacao', function(req, res, next) {
 
 /* Verificação de usuário */
 router.get('/sessao/:login', function(req, res, next) {
-	let login = req.params.email;
+	let login = req.params.login;
 	console.log(`Verificando se o usuário ${login} tem sessão`);
 	
 	let tem_sessao = false;
