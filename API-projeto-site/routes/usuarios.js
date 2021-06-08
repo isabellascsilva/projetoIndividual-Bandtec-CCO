@@ -6,6 +6,7 @@ var Doacao = require('../models').Doacao;
 var Contato = require('../models').Contato;
 var Doador = require('../models').Doador;
 var Revista = require('../models').Revista;
+var DoadorDoacao = require('../models').DoadorDoacao;
 
 
 let sessoes = [];
@@ -40,6 +41,28 @@ router.post('/autenticar', function(req, res, next) {
 		res.status(500).send(erro.message);
   	});
 });
+
+/* Recuperar usuário por login e senha */
+router.post('/buscarDoador', function(req, res, next) {
+	console.log('Buscando Doador');
+
+	var nomeDoador = req.body.nomeDoador; // depois de .body, use o nome (name) do campo em seu formulário de login
+	var dataNasc = req.body.dataNasc; // depois de .body, use o nome (name) do campo em seu formulário de login	
+	
+	let instrucaoSql = `select * from Doador where nomeDoador='${nomeDoador}' and dataNasc='${dataNasc}'`;
+	console.log(instrucaoSql);
+
+	sequelize.query(instrucaoSql, {
+		model: Doador
+	}).then(resultado => {
+		console.log(`Encontrados: ${resultado.length}`);
+
+	}).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+  	});
+});
+
 
 /* Cadastrar usuário */
 router.post('/cadastrar', function(req, res, next) {
@@ -138,6 +161,24 @@ router.post('/cadastrarPessoa', function(req, res, next) {
 		res.status(500).send(erro.message);
   	});
 });
+
+/* Cadastrar fk */
+router.post('/cadastrarDoadorDoacao', function(req, res, next) {
+	console.log('Cadastrado com sucesso!');
+	
+	DoadorDoacao.create({
+		fkDoador : req.body.fkDoador,
+		fkDoacao: req.body.fkDoacao,
+		dataDoacao : req.body.dataDoacao
+	}).then(resultado => {
+		console.log(`Registro criado: ${resultado}`)
+        res.send(resultado);
+    }).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+  	});
+});
+
 
 
 /* Verificação de usuário */

@@ -54,17 +54,18 @@ router.get('/ultimas/:idcaminhao', function(req, res, next) {
 });
 
 
-router.get('/tempo-real/:idcaminhao', function(req, res, next) {
-	console.log('Recuperando caminhões');
+
+router.post('/buscarDoador', function(req, res, next) {
+	console.log('Recuperando doador');
 	
-	//var idcaminhao = req.body.idcaminhao; // depois de .body, use o nome (name) do campo em seu formulário de login
-	var idcaminhao = req.params.idcaminhao;
+	var nomeDoador = req.body.nomeDoador; // depois de .body, use o nome (name) do campo em seu formulário de login
+	var dataNasc = req.body.dataNasc; // depois de .body, use o nome (name) do campo em seu formulário de login	
 	
 	let instrucaoSql = "";
 	
 	if (env == 'dev') {
 		// abaixo, escreva o select de dados para o Workbench
-		instrucaoSql = `select temperatura, umidade, DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, fkcaminhao from leitura where fkcaminhao = ${idcaminhao} order by id desc limit 1`;
+		instrucaoSql = `select * from Doador where nomeDoador='${nomeDoador}' and dataNasc='${dataNasc}'`;
 	} else if (env == 'production') {
 		// abaixo, escreva o select de dados para o SQL Server
 		instrucaoSql = `select top 1 temperatura, umidade, FORMAT(momento,'HH:mm:ss') as momento_grafico, fkcaminhao from leitura where fkcaminhao = ${idcaminhao} order by id desc`;
@@ -82,6 +83,37 @@ router.get('/tempo-real/:idcaminhao', function(req, res, next) {
 		res.status(500).send(erro.message);
 	});
 });
+
+
+router.post('/buscarDoacao', function(req, res, next) {
+	console.log('Recuperando doação');
+	
+	let instrucaoSql = "";
+	
+	if (env == 'dev') {
+		// abaixo, escreva o select de dados para o Workbench
+		instrucaoSql = `select idDoacao from Doacao order by idDoacao desc limit 1;`;
+	} else if (env == 'production') {
+		// abaixo, escreva o select de dados para o SQL Server
+		instrucaoSql = `select top 1 temperatura, umidade, FORMAT(momento,'HH:mm:ss') as momento_grafico, fkcaminhao from leitura where fkcaminhao = ${idcaminhao} order by id desc`;
+	} else {
+		console.log("\n\n\n\nVERIFIQUE O VALOR DE LINHA 1 EM APP.JS!\n\n\n\n")
+	}
+	
+	console.log(instrucaoSql);
+	
+	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
+	.then(resultado => {
+		res.json(resultado[0]);
+	}).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+	});
+});
+
+
+
+
 
 // estatísticas (max, min, média, mediana, quartis etc)
 router.get('/estatisticas', function (req, res, next) {

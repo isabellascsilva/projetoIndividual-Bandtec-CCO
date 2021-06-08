@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    padding: 0;
+        /* SÓ COLOCAR QUANDO COLOCAR COR NO HEADER */
+    margin: 0;
+        /* SÓ COLOCAR QUANDO COLOCAR COR NO HEADER */
+        /*background-color: red;*/
+        background-color: #ecf0f1;
+}
+
+
+.evento1{
+    align-items: center;
+    justify-content: space-around;
+    margin: 5px;
+}
+
+.img-eventoS{
+    width: 320px;
+    height: 320px;
+}
+
+.img-eventoN{
+    width: 230px;
+    height: 280px;
+}
+
+.img-eventoNA{
+    width: 450px;
+    height: 350px;
+}
+

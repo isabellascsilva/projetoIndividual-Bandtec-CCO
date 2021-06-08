@@ -12,7 +12,8 @@ function verificar_autenticacao() {
     if (login_usuario == undefined)  {
         redirecionar_login();
     } else {
-        // b_usuario.innerHTML = nome_usuario;
+        input_nomeDoador.value = nome_usuario;
+        nomeEntrada.innerHTML = `Olá ${nome_usuario}`;
         validar_sessao();
     }
     

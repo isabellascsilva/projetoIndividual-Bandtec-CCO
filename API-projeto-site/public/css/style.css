@@ -192,11 +192,11 @@ a {
 
 }
 
-.container img:hover{
+/* .container img:hover{
     filter: opacity(25%);
     background-color: #232323;
     transition: 0.3s;
-}
+} */
 
 
 .footer{

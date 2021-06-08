@@ -32,6 +32,7 @@
   <section class="conteudo">
     <div class="container-pos">
       <div class="poslogin">
+        <h1 id="nomeEntrada"></h1>
         <h1> Seja também um doador!
         </h1>
         <br>
@@ -96,7 +97,6 @@
           </select><br><br><br>
 
           <input type="submit" id="btn_entrar" value="Cadastrar Doador" class="button-contato-volu"><br>
-
         </form>
 
       </div>
@@ -116,10 +116,10 @@
     <form id="form_doacao" method="post" onsubmit="return cadastrarDoacao()">
 
       <select class="select_class" name="nomeProduto" id="idNomeProduto">
-        <option value="arroz">Arroz</option>
-        <option value="macarrao">Macarrão</option>
-        <option value="feijao">Feijão</option>
-        <option value="agua">Água</option>
+        <option value="Arroz">Arroz</option>
+        <option value="Macarrao">Macarrão</option>
+        <option value="Feijao">Feijão</option>
+        <option value="Água">Água</option>
       </select><br>
 
       <label for="idDescricaoProduto">
@@ -131,10 +131,22 @@
         Data de validade:
       </label><br>
       <input id="idDataValidade" name="dataValidade" class="input_doacao" type="date"><br>
-      <br>
+
+      <label for="idDataDoacao">
+      Data de Doação:
+    </label><br>
+    <input id="idDataDoacao" name="dataDoacao" class="input_doacao" type="date"><br>
+
       <input type="submit" id="btnCadastroDoacao" value="Cadastrar doação" class="button-contato-volu">
 
+      <input name="fkDoador" id="idFkDoador" style="display: none;">
+      <input name="fkDoacao" id="idFkDoacao" style="display: none;">
     </form>
+
+    <div id="mostrarDoacao"></div>
+
+
+
   </div>
 
 </body>
@@ -156,7 +168,10 @@
 
       if (response.ok) {
 
-        alert("Cadastrado com sucesso!");
+        alert("Doação cadastrada com sucesso!");
+        buscarDoacao();
+        mostrarDoacoes();
+
 
       } else {
 
@@ -180,6 +195,7 @@
       if (response.ok) {
 
         alert("Doador cadastrado com sucesso!");
+        buscarDoador()
 
       } else {
 
@@ -192,5 +208,110 @@
 
     return false;
   }
+
+
+  function buscarDoador() {
+        var formulario = new URLSearchParams(new FormData(form_doador));
+        fetch("/leituras/buscarDoador", {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+
+            if (resposta.ok) {
+            
+
+                resposta.json().then(json => {
+
+                    sessionStorage.idDoador_meuapp = json.idDoador;
+                    console.log(json.idDoador);
+                    idFkDoador.value = sessionStorage.idDoador_meuapp;
+                    
+
+                });
+
+            } else {
+
+                console.log('Erro de login!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+
+    function buscarDoacao() {
+        // var formulario = new URLSearchParams(new FormData(form_doador));
+        fetch("/leituras/buscarDoacao", {
+            method: "POST",
+            // body: formulario
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+
+                    sessionStorage.idDoacao_meuapp = json.idDoacao;
+                    console.log(json.idDoacao);
+                    idFkDoacao.value = sessionStorage.idDoacao_meuapp;
+                    cadastrarDoacaoDoador();
+
+                });
+
+            } else {
+
+                console.log('Erro de login!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+
+
+    function cadastrarDoacaoDoador() {
+    var formulario = new URLSearchParams(new FormData(form_doacao));
+    fetch("/usuarios/cadastrarDoadorDoacao", {
+      method: "POST",
+      body: formulario
+    }).then(function (response) {
+
+      if (response.ok) {
+
+      } else {
+
+        console.log('Erro de cadastro!');
+        response.text().then(function (resposta) {
+          div_erro.innerHTML = resposta;
+        });
+      }
+    });
+
+    return false;
+  }
+
+  listaItem=[];
+  listaDescricaoItem=[]
+  function mostrarDoacoes(){
+    listaItem.push(idNomeProduto.value);
+    listaDescricaoItem.push(idDescricaoProduto.value);
+
+    mostrarDoacao.innerHTML = "";
+    for(i=0; i<listaItem.length; i++){
+      mostrarDoacao.innerHTML += `${i + 1}º - ${listaItem[i]}, ${listaDescricaoItem[i]}<br>`;
+    }
+
+
+  }
+
+
+
+
+
 
 </script>
