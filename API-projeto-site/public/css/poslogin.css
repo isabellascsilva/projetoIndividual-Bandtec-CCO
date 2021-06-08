@@ -15,20 +15,44 @@ body {
         background-color: #ecf0f1;
 }
 
+.grafico{
+    width: 100%;
+    height: 600px;
+    background-color: crimson;
+}
+
 .container-pos{
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-    width: 85%;
+    width: 45%;
     height: 650px;
+    background-color: burlywood;
 }
 
 .poslogin{
-    width: 400px;
+    width: 100%;
+    height: 100%;
+    background-color: coral;
 }
 .conteudo-poslogin{
-    width: 400px;
+    width: 45%;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: chartreuse;
 }
+
+
+
+.formulario{
+    width: 100%;
+    background-color: cornsilk;
+}
+
 
 .input_doador{
     width: 100%;
@@ -50,4 +74,17 @@ body {
     color: white;
     border-bottom: none;
     cursor: pointer;
+}
+
+.poslogin{
+    width: 50%;
+}
+
+.conteudo{
+    width: 100%;
+    height: 650px;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }

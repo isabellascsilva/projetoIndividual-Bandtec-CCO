@@ -73,3 +73,16 @@ body {
     height: 350px;
 }
 
+.div-linha{
+    display: flex;
+}
+
+.div-coluna{
+    display: flex;
+    flex-direction: column;
+}
+
+.div-ai{
+    display: flex;
+    justify-content: space-around;
+}

@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ao alcance de todos - Dashboard</title>
   <script type="text/javascript" src="funcoes.js"></script>
-  <!-- <link rel="stylesheet" href="css\poslogin.css">
-  <link rel="stylesheet" href="css\contato.css"> -->
+ <link rel="stylesheet" href="css\poslogin.css">
+  <!-- <link rel="stylesheet" href="css\contato.css"> -->
   <link rel="stylesheet" href="css\style.css">
 
 
@@ -25,14 +25,19 @@
   </div>
   </div>
 
+  <div>
+    <h1 id="nomeEntrada"></h1>
+  </div>
+  <section class="grafico">
 
+  </section>
 
 
 
   <section class="conteudo">
     <div class="container-pos">
-      <div class="poslogin">
-        <h1 id="nomeEntrada"></h1>
+
+
         <h1> Seja também um doador!
         </h1>
         <br>
@@ -41,7 +46,7 @@
         </h2>
 
 
-        <form id="form_doador" method="post" onsubmit="return cadastrarDoador()">
+        <form class="formulario" id="form_doador" method="post" onsubmit="return cadastrarDoador()">
 
           <label for="input_nomeDoador">
             Nome completo*
@@ -99,7 +104,6 @@
           <input type="submit" id="btn_entrar" value="Cadastrar Doador" class="button-contato-volu"><br>
         </form>
 
-      </div>
     </div>
 
     <!--ESSA É A ÁREA DO GRÁFICO-->
@@ -109,11 +113,11 @@
 
     <!--FINAL DA ÁREA DO GRÁFICO-->
 
-  </section><br><br>
-
 
   <div class="conteudo-poslogin">
-    <form id="form_doacao" method="post" onsubmit="return cadastrarDoacao()">
+    <form class="formulario" id="form_doacao" method="post" onsubmit="return cadastrarDoacao()">
+
+      <h2>Produto a ser doado</h2>
 
       <select class="select_class" name="nomeProduto" id="idNomeProduto">
         <option value="Arroz">Arroz</option>
@@ -149,6 +153,7 @@
 
   </div>
 
+</section>
 </body>
 
 </html>
@@ -171,6 +176,7 @@
         alert("Doação cadastrada com sucesso!");
         buscarDoacao();
         mostrarDoacoes();
+        
 
 
       } else {
