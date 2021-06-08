@@ -13,17 +13,6 @@ create table voluntario(
     disponibilidade varchar(100)
     );
     
-    
-
-select * from voluntario;
-
-   create table Doacao(
-	idDoacao INT PRIMARY KEY AUTO_INCREMENT,
-    nomeProduto VARCHAR(45),
-    descricaoProduto VARCHAR(100),
-    dataValidade date
-    );
-   
 
    create table Doador(
 	idDoador INT PRIMARY KEY AUTO_INCREMENT,
@@ -46,6 +35,8 @@ select * from doador;
     primary key(fkDoador, fkDoacao),
     dataDoacao DATETIME
     );
+    
+    select * from DoadorDoacao;
    
    create table Contato (
    idContato int primary key auto_increment,
@@ -65,8 +56,16 @@ select * from doador;
     emailPessoa varchar(45)
     );
     
-    
-
-    
+    select * from voluntario;
+	select * from doador;
+    select * from doacao;
 	select * from revista;
     select * from contato;
+    
+    
+    select idDoacao from Doacao order by idDoacao desc limit 1;
+    
+    
+    select * from DoadorDoacao;
+    
+   
