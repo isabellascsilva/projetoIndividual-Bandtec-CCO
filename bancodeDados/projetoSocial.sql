@@ -23,6 +23,14 @@ create table voluntario(
     cidade VARCHAR(45),
     estado CHAR(2)
     );
+    
+    
+    create table Doacao(
+    idDoacao int primary key auto_increment,
+    nomeProduto varchar(45),
+    descricaoProduto varchar(100),
+    dataValidade date
+    );
 
 select * from doador;
    
@@ -68,4 +76,5 @@ select * from doador;
     
     select * from DoadorDoacao;
     
-   
+   select * from doacao;
+   select * from voluntario;

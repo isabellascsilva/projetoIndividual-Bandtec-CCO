@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="stylegiu.css" />
+
+    <!-- Da acesso a lib -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="header">
+      <div class="container">
+        <h1><span class="highlight">Projeto</span> IoT Revolucionário</h1>
+      </div>
+    </div>
+
+    <div class="dash">
+      <!-- Farol de temperatura -->
+      <div class="graph">
+        <div class="box red">
+          <h1>00°</h1>
+          <h3>STATUS</h3>
+          <p>Descrição do status</p>
+        </div>
+        <div class="box yellow">
+          <h1>00°</h1>
+          <h3>STATUS</h3>
+          <p>Descrição do status</p>
+        </div>
+        <div class="box green">
+          <h1>00°</h1>
+          <h3>STATUS</h3>
+          <p>Descrição do status</p>
+        </div>
+      </div>
+
+      <!-- Gráfico de Linhas -->
+      <div class="graph">
+        <canvas id="myChartLine"></canvas>
+      </div>
+
+      <!-- Gráfico de Barras -->
+      <div class="graph">
+        <canvas id="myChartBar"></canvas>
+      </div>
+
+      <!-- Grafico Pizza -->
+      <div class="graph">
+        <canvas id="myChartPie"></canvas>
+      </div>
+    </div>
+  </body>
+
+  <!-- Inserir JS do Gráfico -->
+  <script>
+
+      //Dados do gráfico
+      const labels = [
+  '07:00',
+  '10:00',
+  '13:00',
+  '16:00',
+  '19:00',
+  '21:00',
+];
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'My First dataset',
+    backgroundColor: 'rgb(255, 99, 132)',
+    borderColor: 'rgb(255, 99, 132)',
+    data: [21, 23, 27, 19, 20, 19],
+  }]
+};
+
+    //configurações no grafico
+    const config = {
+    type: 'line',
+    data,
+    options: {maintainAspectRatio: false,},
+  };
+  
+  var myChart = new Chart(
+    document.getElementById('myChartLine'),
+    config
+  );
+
+
+  //grafico de barras - quantidade por especieis
+  const labelsBar = ["Colisa", "Tetra", "Coridora", "Molinésia", "Arco-iris", "Betta"];
+ 
+  const dataBar = {
+    labels: labelsBar,
+    datasets: [{
+      label: 'Quantidade por espécie',
+    backgroundColor: 'rgb(255, 99, 132)',
+    borderColor: 'rgb(255, 99, 132)',
+    data: [10, 70, 50, 5, 30, 65],
+    }]
+  }
+    const configBar = {
+      type: "bar",
+      data: dataBar,
+      options: {maintainAspectRatio: false,}
+
+    }
+    var myChart = new Chart(
+    document.getElementById('myChartBar'), configBar);
+  
+      //grafico de barras - quantidade por especieis
+  const labelsPie = ["Jovem", "Adulto", "Idoso"];
+ 
+ const dataPie = {
+   labels: labelsPie,
+   datasets: [{
+     label: 'Idade',
+   backgroundColor: ["pink", "red", "purple", "blue"],
+   borderColor: 'none',
+   data: [153, 60, 17],
+   }]
+ }
+   const configPie = {
+     type: "pie",
+     data: dataPie,
+     options: {maintainAspectRatio: false,}
+
+   }
+   var myChart = new Chart(
+   document.getElementById('myChartPie'), configPie);
+  </script>
+</html>

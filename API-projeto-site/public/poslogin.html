@@ -10,40 +10,73 @@
  <link rel="stylesheet" href="css\poslogin.css">
   <!-- <link rel="stylesheet" href="css\contato.css"> -->
   <link rel="stylesheet" href="css\style.css">
+  <link rel="stylesheet" href="css\stylegiu.css">
 
+  <!-- Da acesso a lib -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
 <body>
 
-  <div class="header">
+  <div class="headerpos">
     <div class="nav">
+      <h1>Bem-vindo Voluntário</h1>
       <ul>
-        <li><a onclick="logoff()" style="cursor: pointer;">Sair</a></li>
+        <li><a class="sair" onclick="logoff()" style="cursor: pointer;">Sair</a></li>
       </ul>
     </div>
   </div>
   </div>
 
-  <div>
+  <div class="nomeOla">
     <h1 id="nomeEntrada"></h1>
   </div>
-  <section class="grafico">
 
+  <div class="barra">
+
+  </div>
+  
+  <section class="grafico">
+    <div class="dash">
+          <!-- Gráfico de Barras -->
+          <div class="graph">
+            <canvas id="myChartBar"></canvas>
+          </div>
+
+      <!-- Gráfico de Barras -->
+      <div class="graph">
+        <canvas id="myChartBar2"></canvas>
+      </div>
+          
+      <!-- Gráfico de Linhas -->
+      <div class="graph">
+        <canvas id="myChartLine"></canvas>
+      </div>
+
+      <!-- Grafico Pizza -->
+      <div class="graph">
+        <canvas id="myChartPie"></canvas>
+      </div>      
+
+    </div>
   </section>
 
+  <div class="barra">
 
+  </div>
+  
 
   <section class="conteudo">
     <div class="container-pos">
 
 
-        <h1> Seja também um doador!
+        <h1 style="padding-top: 30px;"> Seja também um doador!
         </h1>
         <br>
         <h2>
           Preencha esses campos:
-        </h2>
+        </h2><br>
 
 
         <form class="formulario" id="form_doador" method="post" onsubmit="return cadastrarDoador()">
@@ -51,27 +84,27 @@
           <label for="input_nomeDoador">
             Nome completo*
           </label><br>
-          <input class="input_doador" name="nomeDoador" type="text" id="input_nomeDoador"><br>
+          <input class="input_doador" name="nomeDoador" type="text" id="input_nomeDoador"><br><br>
           <label for="input_dataNascimento">
             Data de nascimento*
           </label><br>
-          <input class="input_doador" name="dataNasc" type="date" id="input_dataNascimento"><br>
+          <input class="input_doador" name="dataNasc" type="date" id="input_dataNascimento"><br><br>
           <label for="input_logradouro">
             Logradouro*
           </label><br>
-          <input class="input_doador" name="logradouro" type="text" id="input_logradouro"><br>
+          <input class="input_doador" name="logradouro" type="text" id="input_logradouro"><br><br>
           <label for="input_bairro">
-            bairro*
+            Bairro*
           </label><br>
-          <input class="input_doador" name="bairro" type="text" id="input_bairro"><br>
+          <input class="input_doador" name="bairro" type="text" id="input_bairro"><br><br>
           <label for="input_cidade">
-            cidade*
+            Cidade*
           </label><br>
-          <input class="input_doador" name="cidade" type="text" id="input_cidade"><br>
+          <input class="input_doador" name="cidade" type="text" id="input_cidade"><br><br>
           <label for="input_estado">
-            estado*
+            Estado*
           </label><br>
-          <select name="estado">
+          <select class="select_class" name="estado">
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
             <option value="AP">Amapá</option>
@@ -101,7 +134,7 @@
             <option value="TO">Tocantins</option>
           </select><br><br><br>
 
-          <input type="submit" id="btn_entrar" value="Cadastrar Doador" class="button-contato-volu"><br>
+          <input type="submit" id="btn_entrar" value="Se cadastrar" class="button-contato-volu"><br>
         </form>
 
     </div>
@@ -117,31 +150,38 @@
   <div class="conteudo-poslogin">
     <form class="formulario" id="form_doacao" method="post" onsubmit="return cadastrarDoacao()">
 
-      <h2>Produto a ser doado</h2>
+      <h1 style="color: #ecf0f1;">LALALALALALA</h1>
+
+      <h2>Produto a ser doado</h2><br>
 
       <select class="select_class" name="nomeProduto" id="idNomeProduto">
         <option value="Arroz">Arroz</option>
         <option value="Macarrao">Macarrão</option>
         <option value="Feijao">Feijão</option>
         <option value="Água">Água</option>
-      </select><br>
+        <option value="Bolacha">Bolacha</option>
+        <option value="Molho">Molho</option>
+
+
+      </select><br><br>
 
       <label for="idDescricaoProduto">
         Descrição do Produto:
       </label> <br>
       <input id="idDescricaoProduto" name="descricaoProduto" class="input_doacao" type="text">
-      <br>
+      <br><br>
       <label for="idDataValidade">
         Data de validade:
       </label><br>
-      <input id="idDataValidade" name="dataValidade" class="input_doacao" type="date"><br>
+      <input id="idDataValidade" name="dataValidade" class="input_doacao" type="date"><br><br>
 
       <label for="idDataDoacao">
       Data de Doação:
     </label><br>
-    <input id="idDataDoacao" name="dataDoacao" class="input_doacao" type="date"><br>
+    <input id="idDataDoacao" name="dataDoacao" class="input_doacao" type="date"><br><br>
 
       <input type="submit" id="btnCadastroDoacao" value="Cadastrar doação" class="button-contato-volu">
+      <button class="button-contato-volu"><a href="https://chat.whatsapp.com/AOr2bIYgT3rKxqikheZh1d" target="_blank" style="text-decoration: none; color: azure;"> Finalizar Doação</a></button><br><br>Copie a lista e mande.
 
       <input name="fkDoador" id="idFkDoador" style="display: none;">
       <input name="fkDoacao" id="idFkDoacao" style="display: none;">
@@ -154,6 +194,21 @@
   </div>
 
 </section>
+
+            <!--Começo do footer-->
+            <center>
+              <div class="footer-login">
+                  <div class="container">
+                      <div class="informacao">
+                      <p>Feito por Isabella Souza - Aluna BANDTEC</p>
+                  </div>
+                  </div>
+              </div>
+              </center>
+              <!--Fim footer-->
+
+
+
 </body>
 
 </html>
@@ -161,6 +216,108 @@
 
 
 <script>
+
+    //grafico de barras - quantidade por especieis
+    const labelsBar = ["Marmita", "Água", "Pão", "Bolacha"];
+ 
+ const dataBar = {
+   labels: labelsBar,
+   datasets: [{
+     label: 'Quantidade levada',
+   backgroundColor: 'rgb(233,150,122)',
+   borderColor: 'rgb(255, 99, 132)',
+   data: [400, 400, 500, 300],
+   }]
+ }
+   const configBar = {
+     type: "bar",
+     data: dataBar,
+     options: {maintainAspectRatio: false,}
+
+   }
+   var myChart = new Chart(
+   document.getElementById('myChartBar'), configBar);
+
+   ///////////////////////////
+
+         //grafico de barras - quantidade por especieis
+  const labelsBar2 = ["Macarrão", "Molho", "Salsicha", "Arroz", "Feijão", "Batata", "Cenoura"];
+ 
+ const dataBar2 = {
+   labels: labelsBar2,
+   datasets: [{
+     label: 'Quantidade específica de comida (Por pacote)',
+   backgroundColor: 'rgb(233,150,122)',
+   borderColor: 'rgb(255, 99, 132)',
+   data: [250, 300, 90, 100, 100, 200, 200],
+   }]
+ }
+   const configBar2 = {
+     type: "bar",
+     data: dataBar2,
+     options: {maintainAspectRatio: false,}
+
+   }
+   var myChart = new Chart(
+   document.getElementById('myChartBar2'), configBar2);
+
+   //////////////////////////////////
+
+   
+      //Dados do gráfico
+      const labels = [
+  'Dezembro',
+  'Janeiro',
+  'Fevereiro',
+  'Março',
+  'Abril',
+  'Maio',
+];
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'Horário das entregas',
+    backgroundColor: 'rgb(233,150,122)',
+    borderColor: 'rgb(233,150,122)',
+    data: [21, 18, 19, 18, 6, 20],
+  }]
+};
+
+    //configurações no grafico
+    const config = {
+    type: 'line',
+    data,
+    options: {maintainAspectRatio: false,},
+  };
+  
+  var myChart = new Chart(
+    document.getElementById('myChartLine'),
+    config
+  );
+  //////////////////////////////////////////
+
+        //grafico de barras - quantidade por especieis
+        const labelsPie = ["Jovem", "Adulto", "Idoso"];
+ 
+ const dataPie = {
+   labels: labelsPie,
+   datasets: [{
+     label: 'Idade',
+   backgroundColor: ["DarkRed", "LightSalmon", "Tomato",],
+   borderColor: 'rgb(233,150,122)',
+   data: [10, 30, 7],
+   }]
+ }
+   const configPie = {
+     type: "pie",
+     data: dataPie,
+     options: {maintainAspectRatio: false,}
+
+   }
+   var myChart = new Chart(
+   document.getElementById('myChartPie'), configPie);
+
+   /////////////////////////////
 
   verificar_autenticacao()
 
@@ -173,11 +330,10 @@
 
       if (response.ok) {
 
-        alert("Doação cadastrada com sucesso!");
+        alert("Produto cadastrado com sucesso!");
         buscarDoacao();
         mostrarDoacoes();
-        
-
+      
 
       } else {
 
@@ -200,11 +356,18 @@
 
       if (response.ok) {
 
-        alert("Doador cadastrado com sucesso!");
-        buscarDoador()
+        alert("Doador cadastrado com sucesso! Entraremos em contato.");
+        buscarDoador();
+        input_nomeDoador.value="";
+        input_dataNascimento.value="";
+        input_logradouro.value="";
+        input_bairro.value="";
+        input_cidade.value="";
+        
 
       } else {
 
+        alert("Preencha todos os campos.");
         console.log('Erro de cadastro!');
         response.text().then(function (resposta) {
           div_erro.innerHTML = resposta;

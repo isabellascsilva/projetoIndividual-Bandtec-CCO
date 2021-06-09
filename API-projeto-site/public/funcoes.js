@@ -13,7 +13,7 @@ function verificar_autenticacao() {
         redirecionar_login();
     } else {
         input_nomeDoador.value = nome_usuario;
-        nomeEntrada.innerHTML = `Olá ${nome_usuario}`;
+        nomeEntrada.innerHTML = `Olá ${nome_usuario}! Acompanhe nosso projeto.`;
         validar_sessao();
     }
     
